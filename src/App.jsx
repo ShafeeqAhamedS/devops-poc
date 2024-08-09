@@ -14,16 +14,11 @@ function App() {
       </div>
       <h1>Dev Ops POC</h1>
       <div className="card">
+        <p>Enjoy Clicking me</p>
         <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+          clicked me {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
