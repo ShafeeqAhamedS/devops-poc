@@ -10,7 +10,7 @@ pipeline {
                 script {
                     // Navigate to the project directory
                     dir('C:/Users/shafe/Downloads/testing') {
-                        git url: 'https://github.com/JEEVAABI15/Ecommerce', branch: 'main'
+                        git url: 'https://github.com/ShafeeqAhamedS/devops-poc.git', branch: 'main'
                     }
                 }
             }
