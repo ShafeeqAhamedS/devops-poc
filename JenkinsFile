@@ -1,0 +1,52 @@
+pipeline {
+    agent any
+    environment {
+        // Add Node.js directory to PATH if needed
+        PATH = "${env.PATH};C:/Program Files/nodejs/"
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Navigate to the project directory
+                    dir('C:/Users/shafe/Downloads/testing') {
+                        // Configure Git to trust the repository directory
+                        bat 'git config --global --add safe.directory C:/Users/shafe/Downloads/testing'
+                        // Initialize a git repository if not already initialized
+                        bat 'git init'
+                        // Pull the latest code from the Git repository
+                        bat 'git pull https://github.com/ShafeeqAhamedS/devops-poc'
+                    }
+                }
+            }
+        }
+        stage('Setup Environment') {
+            steps {
+                script {
+                    // Verify Node.js and npm installation
+                    bat 'node -v'
+                    bat 'npm -v'
+                }
+            }
+        }
+        stage('Build and Serve') {
+            steps {
+                script {
+                    // Run npm commands
+                    dir('C:/Users/shafe/Downloads/testing') {
+                        bat 'npm install'
+                        bat 'npm run build'
+                    }
+                }
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}
