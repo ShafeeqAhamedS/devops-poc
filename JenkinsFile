@@ -10,12 +10,7 @@ pipeline {
                 script {
                     // Navigate to the project directory
                     dir('C:/Users/shafe/Downloads/testing') {
-                        // Configure Git to trust the repository directory
-                        bat 'git config --global --add safe.directory C:/Users/shafe/Downloads/testing'
-                        // Initialize a git repository if not already initialized
-                        bat 'git init'
-                        // Pull the latest code from the Git repository
-                        bat 'git pull https://github.com/ShafeeqAhamedS/devops-poc'
+                        git url: 'https://github.com/JEEVAABI15/Ecommerce', branch: 'main'
                     }
                 }
             }
