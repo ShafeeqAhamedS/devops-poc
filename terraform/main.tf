@@ -3,7 +3,7 @@ provider "local" {}
 resource "null_resource" "build_and_deploy" {
   provisioner "local-exec" {
     command = <<EOT
-    cd C:\Users\shafe\Downloads\testing && npm install && npm install -g serve && npm run build && npx serve -s build
+    cd C:\\Users\\shafe\\Downloads\\testing && npm install && npm install -g serve && npm run build && npx serve -s build
     EOT
   }
 }
