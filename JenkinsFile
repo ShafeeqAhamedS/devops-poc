@@ -5,8 +5,10 @@ pipeline {
         PROJECT_DIR = 'C:/Users/shafe/Downloads/testing'
         TERRAFORM_DIR = "${PROJECT_DIR}/terraform"
         NODEJS_PATH = 'C:/Program Files/nodejs/'
-        
+        TERRAFORM_PATH = 'C:/Program Files/Terraform/'
+
         // Add Node.js directory to PATH
+        PATH = "${env.PATH};${TERRAFORM_PATH}"
         PATH = "${env.PATH};${NODEJS_PATH}"
     }
     stages {
