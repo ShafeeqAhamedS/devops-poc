@@ -16,16 +16,16 @@ function App() {
           <li>Button click counter implemented 🔢</li>
           <li>Jenkins pipeline setup 🧩</li>
           <li>IIS Server Set up 🌐</li>
+          <li>Implement Terraform for installing node🌱</li>
         </ul>
         <h2>Tasks To Do 📋</h2>
         <ul>
-          <li>Implement Terraform 🌱</li>
           <li>Prepare Documentation 📚</li>
         </ul>
       </div>
       <div className="latest-push">
         <h2>Latest Push 🔄</h2>
-        <p>Feature branch merged on August 9, 2024 - 03:00 PM IST 📅</p>
+        <p>Feature branch merged on August 11, 2024 - 06:30 PM IST 📅</p>
       </div>
     </>
   )

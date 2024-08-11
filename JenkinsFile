@@ -1,16 +1,32 @@
 pipeline {
     agent any
     environment {
-        // Add Node.js directory to PATH if needed
-        PATH = "${env.PATH};C:/Program Files/nodejs/"
+        // Define directory variables
+        PROJECT_DIR = 'C:/Users/shafe/Downloads/testing'
+        TERRAFORM_DIR = "${PROJECT_DIR}/terraform"
+        NODEJS_PATH = 'C:/Program Files/nodejs/'
+        
+        // Add Node.js directory to PATH
+        PATH = "${env.PATH};${NODEJS_PATH}"
     }
     stages {
         stage('Checkout') {
             steps {
                 script {
                     // Navigate to the project directory
-                    dir('C:/Users/shafe/Downloads/testing') {
+                    dir("${PROJECT_DIR}") {
                         git url: 'https://github.com/ShafeeqAhamedS/devops-poc.git', branch: 'main'
+                    }
+                }
+            }
+        }
+        stage('Prepare Infrastructure') {
+            steps {
+                script {
+                    // Navigate to the Terraform directory and execute Terraform commands
+                    dir("${TERRAFORM_DIR}") {
+                        bat 'terraform init'
+                        bat 'terraform apply -auto-approve'
                     }
                 }
             }
@@ -28,7 +44,7 @@ pipeline {
             steps {
                 script {
                     // Run npm commands
-                    dir('C:/Users/shafe/Downloads/testing') {
+                    dir("${PROJECT_DIR}") {
                         bat 'npm install'
                         bat 'npm run build'
                     }
