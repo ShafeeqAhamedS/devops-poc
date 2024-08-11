@@ -8,8 +8,7 @@ pipeline {
         TERRAFORM_PATH = 'C:/Program Files/Terraform/'
 
         // Add Node.js directory to PATH
-        PATH = "${env.PATH};${TERRAFORM_PATH}"
-        PATH = "${env.PATH};${NODEJS_PATH}"
+        PATH = "${env.PATH};${NODEJS_PATH};${TERRAFORM_PATH}"
     }
     stages {
         stage('Checkout') {
